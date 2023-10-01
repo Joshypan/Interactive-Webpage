@@ -48,15 +48,12 @@ button
 	box-shadow: 0 0 3px #0000;
     font-family: 'Montserrat', sans-serif;
 }
-button:hover
-{
-    background: #333;
-}
 .animation {
     position: relative;
 }
-#follower {
+#mouse{
+    position: relative;
+}
+#miniMe{
     position: absolute;
 }
-
-

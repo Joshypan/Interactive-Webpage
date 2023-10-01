@@ -1,95 +1,92 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel = "stylesheet" href = "InteractiveWebPage.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/jpg" href="subject.png"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700|Playfair+Display:400,700|Montserrat:400,700&display=swap">
-  <title>FIRST WEBPAGE</title>
-</head>
-<div class = animation><body>
-	<h1> Interactive Webpage  </h1>
-	<p class = "author" >Brought to you by: <b>Joshua Panchana Cedeno</b></p>
-	<p> Date completed: September 3, 3:15:45PM</p>
-	<button id="browser">Get Browser Info</button>
-  <script>
-    document.getElementById('browser').addEventListener('click', function () {
-        var userAgent = navigator.userAgent;
-        alert(userAgent);
-    });
-</script>
-
-	<div class="main">
- 		<h2>Video Explanation</h2>
-    <p>This video will explain how this website works and all of its features.</p>
-    <div class="calculator">     
-  	  <h2>Factorial Calculator</h2>
-	    <input id = "value" type = "number" value = "8"/> 
-			<div> Enter a positive number </div>
-			  <button id = "calc"> CALCULATE  </button>
-        <script>
-          let fact = document.getElementById("calc");
-          fact.onclick = () => {
-            const num = document.querySelector("#value").value;
-    				var arr = 1;
-            if (num === 0)
-            {
-     			   		alert("1");
-					  } else if (num < 0) 
-            {
-           	  alert("negative numbers do not have a factorial")
-           	} else 
-            {
-						  for (var i = num; i > 0; i--) 
-              {
-                arr *= i 
-            	}
-              alert(arr);
-					  }
-        	}
-	 		  </script>
-     	</div>
-	  </div>
-		<h2>ANIMATION</h2>
-	  
-		  <img id = "mouse" src="subject.png" alt="Young Josh" width="75" height="75"/>
-		</div>
-   	<script>
-				const follower = document.getElementById("mouse");
-        document.addEventListener("click", (event) => {
-          follower.style.display = "block";
-          const pngMidX = event.clientX - follower.clientWidth / 2;
-          const pngMidY = event.clientY - follower.clientHeight / 2;
-          let startX = parseFloat(getComputedStyle(follower).left) || 0;
-          let startY = parseFloat(getComputedStyle(follower).top) || 0;
-          followMe(startX, startY, pngMidX, pngMidY);
+  <head>
+    <link rel = "stylesheet" href = "InteractiveWebPage.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="subject.png"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700|Playfair+Display:400,700|Montserrat:400,700&display=swap">
+    <title>FIRST WEBPAGE</title>
+  </head>
+  <body>
+    <div class="animation">
+      <h1>Interactive Webpage</h1>
+      <p class="author">Brought to you by: <b>Joshua Panchana Cedeno</b></p>
+      <p>Date completed: September 3, 3:15:45 PM</p>
+      <button id="browser">Get Browser Info</button>
+      <!-- Browser Info --> 
+      <script>
+        document.getElementById('browser').addEventListener('click', function () {
+            var userAgent = navigator.userAgent;
+            alert(userAgent);
         });
-
-        function followMe(startX, startY, pngMidX, pngMidY) {
-          const duration = 500;
-          const frameRate = 60;
-          const frames = duration / 1000 * frameRate;
-          const deltaX = (targetX - startX) / frames;
-          const deltaY = (targetY - startY) / frames;
-
-          let frame = 0;
-          function update() {
-            if (frame < frames) {
-              startX += deltaX;
-              startY += deltaY;
-              follower.style.left = startX + "px";
-              follower.style.top = startY + "px";
-              frame++;
-              requestAnimationFrame(update);
-            } else {
-              follower.style.display = "none";
-            } 
-          }
-          update();
-        }
       </script>
-</body>
+  
+      <div class="main">
+        <h2>Video Explanation</h2>
+        <p>This video will explain how this website works and all of its features.</p>
+        <div class="calculator">     
+          <h2>Factorial Calculator</h2>
+          <input id="value" type="number" value="8"/> 
+          <div> Enter a positive number </div>
+          <button id="calc">CALCULATE</button>
+          <!-- Factorial Calc --> 
+          <script>
+            let fact = document.getElementById("calc");
+            fact.onclick = () => {
+              const num = document.querySelector("#value").value;
+              var arr = 1;
+              if (num === 0) {
+                alert("1");
+              } else if (num < 0) {
+                alert("Negative numbers do not have a factorial");
+              } else {
+                for (var i = num; i > 0; i--) {
+                  arr *= i;
+                }
+                alert(arr);
+              }
+            }
+          </script>
+        </div>
+          <h2>My Animation</h2>
+            <img id="miniMe"  src="subject.png" alt="Young Josh" width="75" height="75"/>
+          <p> Mini me will follow wherever you click </p>
+      </div>
+    </div>
+    <!-- Animation for my photo --> 
+    <script>
+      const animatePhoto = document.getElementById("miniMe");
+      document.addEventListener("click", (event) => {
+        animatePhoto.style.display = "block";
+        const clickX = event.clientX - animatePhoto.clientWidth;
+        const clickY = event.clientY - animatePhoto.clientHeight;
+        let startX = parseFloat(getComputedStyle(animatePhoto).left);
+        let startY = parseFloat(getComputedStyle(animatePhoto).top);
+        followMe(startX, startY, clickX, clickY);
+      });
+
+      function followMe(startX, startY, clickX, clickY) {
+        const duration = 800;
+        const frameRate = 60;
+        const frames = duration / 1000 * frameRate;
+        const changeX = (clickX - startX) / frames;
+        const changeY = (clickY - startY) / frames;
+
+      let frame = 0;
+      function update() {
+        if (frame < frames) {
+          startX += changeX;
+          startY += changeY;
+          animatePhoto.style.left = startX + "px";
+          animatePhoto.style.top = startY + "px";
+          frame++;
+          requestAnimationFrame(update);
+        } else {
+          animatePhoto.style.display = "none";
+        } 
+        }
+        update();
+      }
+    </script>
+  </body>
 </html>
-
-
-{/* }
