@@ -57,3 +57,11 @@ button
 #miniMe{
     position: absolute;
 }
+.aniText
+{
+    padding-bottom: 2%;
+}
+.lastPara
+{
+    padding-top: 10%;
+}

@@ -11,7 +11,13 @@
     <div class="animation">
       <h1>Interactive Webpage</h1>
       <p class="author">Brought to you by: <b>Joshua Panchana Cedeno</b></p>
-      <p>Date completed: September 3, 3:15:45 PM</p>
+      <p>Date completed: October 1, 3:15:45 PM</p>
+      <p id="date"></p>
+      <!-- Today's Date --> 
+      <script>
+        const getDate = new Date();
+        document.getElementById("date").innerHTML = getDate;
+      </script>
       <button id="browser">Get Browser Info</button>
       <!-- Browser Info --> 
       <script>
@@ -48,9 +54,9 @@
             }
           </script>
         </div>
-          <h2>My Animation</h2>
+          <h2 class="aniText">My Animation</h2>
             <img id="miniMe"  src="subject.png" alt="Young Josh" width="75" height="75"/>
-          <p> Mini me will follow wherever you click </p>
+          <p class="lastPara"> Mini me will follow wherever you click </p>
       </div>
     </div>
     <!-- Animation for my photo --> 
@@ -67,7 +73,7 @@
 
       function followMe(startX, startY, clickX, clickY) {
         const duration = 800;
-        const frameRate = 60;
+        const frameRate = 100;
         const frames = duration / 1000 * frameRate;
         const changeX = (clickX - startX) / frames;
         const changeY = (clickY - startY) / frames;
