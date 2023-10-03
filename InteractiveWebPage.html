@@ -78,20 +78,18 @@
         const changeX = (clickX - startX) / frames;
         const changeY = (clickY - startY) / frames;
 
-      let frame = 0;
-      function update() {
-        if (frame < frames) {
-          startX += changeX;
-          startY += changeY;
-          animatePhoto.style.left = startX + "px";
-          animatePhoto.style.top = startY + "px";
-          frame++;
-          requestAnimationFrame(update);
-        } else {
-          animatePhoto.style.display = "none";
-        } 
+        let frame = 0;
+        function update() {
+          if (frame < frames) {
+            startX += changeX;
+            startY += changeY;
+            animatePhoto.style.left = startX + "px";
+            animatePhoto.style.top = startY + "px";
+            frame++;
+            requestAnimationFrame(update);
+          } 
         }
-        update();
+          update();
       }
     </script>
   </body>
