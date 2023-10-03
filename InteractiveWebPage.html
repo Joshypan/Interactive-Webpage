@@ -63,19 +63,19 @@
     <script>
       const animatePhoto = document.getElementById("miniMe");
       document.addEventListener("click", (event) => {
-        const clickX = event.clientX - animatePhoto.clientWidth;
-        const clickY = event.clientY - animatePhoto.clientHeight;
+        const nextX = event.clientX - animatePhoto.clientWidth;
+        const nextY = event.clientY - animatePhoto.clientHeight;
         let startX = parseFloat(getComputedStyle(animatePhoto).left);
         let startY = parseFloat(getComputedStyle(animatePhoto).top);
-        followMe(startX, startY, clickX, clickY);
+        followMe(startX, startY, nextX, nextY);
       });
 
-      function followMe(startX, startY, clickX, clickY) {
+      function followMe(startX, startY, nextX, nextY) {
         const duration = 1000;
         const frameRate = 100;
         const frames = duration / 1000 * frameRate;
-        const changeX = (clickX - startX) / frames;
-        const changeY = (clickY - startY) / frames;
+        const changeX = (nextX - startX) / frames;
+        const changeY = (nextY - startY) / frames;
 
         let frame = 0;
         function update() {
