@@ -63,7 +63,6 @@
     <script>
       const animatePhoto = document.getElementById("miniMe");
       document.addEventListener("click", (event) => {
-        animatePhoto.style.display = "block";
         const clickX = event.clientX - animatePhoto.clientWidth;
         const clickY = event.clientY - animatePhoto.clientHeight;
         let startX = parseFloat(getComputedStyle(animatePhoto).left);
