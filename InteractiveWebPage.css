@@ -48,20 +48,23 @@ button
 	box-shadow: 0 0 3px #0000;
     font-family: 'Montserrat', sans-serif;
 }
-.animation {
+.animation 
+{
     position: relative;
 }
-#mouse{
-    position: relative;
-}
-#miniMe{
-    position: absolute;
+.lastPara
+{
+    padding-top: 10%;
 }
 .aniText
 {
     padding-bottom: 2%;
 }
-.lastPara
+#mouse
 {
-    padding-top: 10%;
+    position: absolute;
+}
+#miniMe
+{
+    position: absolute;
 }
